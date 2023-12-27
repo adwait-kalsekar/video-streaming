@@ -1,3 +1,4 @@
+// use for controllers to avoid try catch blocks in each controller
 const asyncHandler = (requestHandler) => {
   return async (req, res, next) => {
     try {
