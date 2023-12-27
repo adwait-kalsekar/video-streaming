@@ -2,6 +2,9 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
+// Import Routes
+import userRouter from "./routes/user.routes.js";
+
 const app = express();
 
 // CORS options
@@ -26,5 +29,9 @@ app.use(cors(corsOptions));
 app.use(express.json(jsonOptions));
 app.use(express.urlencoded(encoderOptions));
 app.use(express.static("public"));
+app.use(cookieParser());
+
+// Routes
+app.use("/api/v1/users", userRouter);
 
 export default app;
